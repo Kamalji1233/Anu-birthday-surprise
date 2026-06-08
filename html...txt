@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anushka ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+background:linear-gradient(135deg,#141e30,#243b55,#ff4d88);
+height:100vh;
+color:white;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+text-align:center;
+opacity:0;
+transform:translateX(100%);
+transition:1s ease;
+}
+
+.slide.active{
+opacity:1;
+transform:translateX(0);
+}
+
+.card{
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:25px;
+max-width:420px;
+width:95%;
+box-shadow:0 10px 35px rgba(0,0,0,.25);
+}
+
+.photo{
+width:250px;
+height:330px;
+object-fit:cover;
+border-radius:20px;
+border:4px solid white;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+animation:zoom 5s infinite alternate;
+}
+
+@keyframes zoom{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
+}
+
+h1{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+p{
+font-size:1rem;
+line-height:1.7;
+}
+
+.gift{
+font-size:120px;
+cursor:pointer;
+animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-15px);
+}
+}
+
+.controls{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+z-index:1000;
+}
+
+button{
+padding:12px 22px;
+border:none;
+border-radius:30px;
+font-weight:bold;
+background:white;
+color:#ff4d88;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.heart{
+position:fixed;
+bottom:-30px;
+font-size:20px;
+animation:floatUp 6s linear forwards;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+.confetti{
+position:fixed;
+top:-20px;
+width:12px;
+height:12px;
+animation:fall linear forwards;
+z-index:9999;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+}
+}
+
+.surprise{
+font-size:3rem;
+font-weight:900;
+line-height:1.3;
+
+text-shadow:
+0 0 10px white,
+0 0 20px #ff4da6,
+0 0 40px #ff4da6,
+0 0 80px #ff4da6;
+
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
+}
+
+.final-photo{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+margin-bottom:20px;
+}
+
+@media(max-width:600px){
+
+.photo{
+width:210px;
+height:280px;
+}
+
+.surprise{
+font-size:2.2rem;
+}
+
+h1{
+font-size:1.7rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active">
+<div class="gift" onclick="nextSlide()">🎁</div>
+<h1>Birthday Surprise</h1>
+<p>Tap the gift to begin ❤️</p>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+<div class="card">
+<h1>✨ Dear Anushka ✨</h1>
+<p>
+Today is a very special day because it celebrates
+someone truly wonderful.
+
+May your life always be filled with happiness,
+success and beautiful memories.
+</p>
+</div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+<img src="anushka1.jpg" class="photo">
+<div class="card">
+<h1>🌸 Beautiful Smile</h1>
+<p>
+Your smile makes every moment brighter
+and your presence makes every place special.
+</p>
+</div>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+<div class="card">
+<h1>💖 Birthday Wishes</h1>
+<p>
+May all your dreams come true.
+
+May every day bring joy,
+every challenge bring growth,
+and every moment bring happiness.
+</p>
+</div>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+<img src="anushka2.jpg" class="photo">
+<div class="card">
+<h1>✨ Stay Amazing ✨</h1>
+<p>
+Keep shining like a star,
+keep chasing your dreams,
+and keep being the incredible person you are.
+</p>
+</div>
+</div>
+
+<!-- Final Surprise -->
+<div class="slide">
+
+<img src="anushka1.jpg" class="final-photo">
+
+<h1 class="surprise">
+🎉 HAPPY BIRTHDAY 🎉
+<br>
+ANUSHKA ❤️
+</h1>
+
+<div class="card" style="margin-top:20px;">
+<p>
+May this birthday bring you endless smiles,
+beautiful memories, success, laughter,
+and everything your heart wishes for.
+
+Enjoy your special day!
+
+🎂🎁✨❤️🎉
+</p>
+</div>
+
+</div>
+
+<div class="controls">
+<button onclick="prevSlide()">⬅ Prev</button>
+<button onclick="nextSlide()">Next ➡</button>
+</div>
+
+<script>
+
+const slides=document.querySelectorAll(".slide");
+let current=0;
+
+function showSlide(index){
+
+slides.forEach(slide=>{
+slide.classList.remove("active");
+});
+
+slides[index].classList.add("active");
+
+if(index===5){
+specialBurst();
+}
+}
+
+function nextSlide(){
+if(current<slides.length-1){
+current++;
+showSlide(current);
+}
+}
+
+function prevSlide(){
+if(current>0){
+current--;
+showSlide(current);
+}
+}
+
+/* Hearts */
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},500);
+
+/* Confetti */
+
+function createConfetti(){
+
+const colors=[
+"#ff4081",
+"#ffd700",
+"#00e5ff",
+"#7cff00",
+"#ffffff",
+"#ff9800"
+];
+
+for(let i=0;i<12;i++){
+
+let conf=document.createElement("div");
+
+conf.className="confetti";
+
+conf.style.left=Math.random()*100+"vw";
+
+conf.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+conf.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(conf);
+
+setTimeout(()=>{
+conf.remove();
+},5000);
+}
+}
+
+setInterval(createConfetti,400);
+
+function specialBurst(){
+
+for(let i=0;i<20;i++){
+
+setTimeout(()=>{
+createConfetti();
+},i*120);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
